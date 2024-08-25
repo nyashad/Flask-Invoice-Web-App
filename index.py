@@ -22,7 +22,7 @@ client.set_app_details({"title" : "Invoice Generator", "version" : "v0.0.1"})
 
 @app.route('/')
 def index():
-    invoice_id = ''.join(random.sample('0123456789', 6))
+    invoice_id = 'DM'.join(random.sample('0123456789', 6))
     return render_template('index.html', invoice_id=invoice_id, date = date.today())
 
 @app.route('/invoice', methods=['POST'])
