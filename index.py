@@ -38,10 +38,10 @@ def invoice():
     items = []
     sub_total = 0
     for x, _ in enumerate(item_name):
-        amount = int(item_qty[x]) * int(item_unitprice[x])
+        amount = float(item_qty[x]) * float(item_unitprice[x])
         sub_total += amount
         items.append({'item_name': item_name[x], 'item_qty': item_qty[x], 'item_unitprice': item_unitprice[x], 'amount': amount})
-    tax = int(data['tax_percentage']) * sub_total / 100
+    tax = float(data['tax_percentage']) * sub_total / 100
     total = sub_total + tax
     form = MultiDict(request.form)
     form['image'] = img_url
